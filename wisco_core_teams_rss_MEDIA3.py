@@ -277,16 +277,14 @@ def main():
     args = ap.parse_args()
 
     # Optional fallback logos
-    logo_urls = {}
-    if args.fallback_base_url:
-        base = args.fallback_base_url.rstrip("/")
-        logo_urls = {
-            "Packers": f"{base}/img/packers.png",
-            "Bucks": f"{base}/img/bucks.png",
-            "Brewers": f"{base}/img/brewers.png",
-            "Badgers": f"{base}/img/badgers.png",
-            "Wisconsin": f"{base}/img/badgers.png",
-        }
+  logo_urls = {
+    "Packers": f"{base}/img/packers.jpg",
+    "Bucks": f"{base}/img/bucks.jpg",
+    "Brewers": f"{base}/img/brewers.jpg",
+    "Badgers": f"{base}/img/badgers.jpg",
+    "Wisconsin": f"{base}/img/badgers.jpg",
+}
+
 
     today = dt.date.today()
     items = []
