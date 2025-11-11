@@ -1,4 +1,4 @@
-name: Build & Publish Wisconsin RSS
+name: Build & Publish Wisconsin RSS (MEDIA)
 
 on:
   schedule:
@@ -20,16 +20,13 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: Generate RSS (to ./public)
+      - name: Generate RSS into ./public (media-aware)
         run: |
           mkdir -p public
-          python wisco_core_teams_rss.py --out public/wisconsin-sports.xml --days 6 --max-items 200 --live-final-only
-          # Optional: use a friendlier name, e.g. feed.xml
-          # python wisco_core_teams_rss.py --out public/feed.xml --days 6 --max-items 200 --live-final-only
+          python wisco_core_teams_rss_MEDIA.py --out public/wisconsin-sports.xml --days 6 --max-items 220 --live-final-only
 
       - name: Publish to gh-pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
-          # This writes to the gh-pages branch; main remains script-only
