@@ -1,0 +1,31 @@
+name: Update Wisconsin Sports RSS
+
+on:
+  schedule:
+    - cron: '*/15 * * * *'   # every 15 minutes (UTC)
+  workflow_dispatch:         # lets you run it manually from the Actions tab
+
+permissions:
+  contents: write            # allow the workflow to push updates
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Generate RSS
+        run: |
+          python wisco_core_teams_rss.py --out wisconsin-sports.xml --days 6 --max-items 200 --live-final-only
+
+      - name: Commit & push updated XML
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Auto-update RSS feed"
+          file_pattern: wisconsin-sports.xml
