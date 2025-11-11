@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+<channel>
+<title>Wisconsin Sports (Custom)</title>
+<link>https://www.espn.com/</link>
+<description>Scores &amp; updates for selected Wisconsin teams.</description>
+<lastBuildDate>Tue, 11 Nov 2025 19:25:24 +0000</lastBuildDate>
+<item>
+<title>NHL: Florida Panthers 3 @ Vegas Golden Knights 2 (Final)</title>
+<link>https://www.espn.com/nhl/boxscore/_/gameId/401802606</link>
+<guid isPermaLink='false'>401802606-NHL</guid>
+<pubDate>Tue, 11 Nov 2025 03:00:00 +0000</pubDate>
+<description><![CDATA[Florida Panthers vs Vegas Golden Knights — Final]]></description>
+</item>
+<item>
+<title>NBA: Milwaukee Bucks 116 @ Dallas Mavericks 114 (Final)</title>
+<link>https://www.espn.com/nba/boxscore/_/gameId/401810058</link>
+<guid isPermaLink='false'>401810058-NBA</guid>
+<pubDate>Tue, 11 Nov 2025 01:30:00 +0000</pubDate>
+<description><![CDATA[Milwaukee Bucks vs Dallas Mavericks — Final]]></description>
+</item>
+<item>
+<title>NFL: Philadelphia Eagles 10 @ Green Bay Packers 7 (Final)</title>
+<link>https://www.espn.com/nfl/boxscore/_/gameId/401772630</link>
+<guid isPermaLink='false'>401772630-NFL</guid>
+<pubDate>Tue, 11 Nov 2025 01:15:00 +0000</pubDate>
+<description><![CDATA[Philadelphia Eagles vs Green Bay Packers — Final]]></description>
+</item>
+</channel>
+</rss>
