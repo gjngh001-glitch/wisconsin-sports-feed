@@ -1,0 +1,35 @@
+name: Build & Publish Wisconsin RSS
+
+on:
+  schedule:
+    - cron: '*/15 * * * *'    # every 15 minutes (UTC)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Generate RSS (to ./public)
+        run: |
+          mkdir -p public
+          python wisco_core_teams_rss.py --out public/wisconsin-sports.xml --days 6 --max-items 200 --live-final-only
+          # Optional: use a friendlier name, e.g. feed.xml
+          # python wisco_core_teams_rss.py --out public/feed.xml --days 6 --max-items 200 --live-final-only
+
+      - name: Publish to gh-pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          # This writes to the gh-pages branch; main remains script-only
